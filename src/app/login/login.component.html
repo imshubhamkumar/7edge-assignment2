@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="#">Login</a>
+</nav>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <form [formGroup]="loginForm">
+      <input
+      formControlName="email"
+        type="text"
+        id="email"
+        class="fadeIn second"
+        name="email"
+        placeholder="login"
+        required
+      />
+      <input
+        type="password"
+        id="pass"
+        formControlName="pass"
+        class="fadeIn third"
+        name="pass"
+        placeholder="password"
+        required
+      />
+      <input type="submit" class="fadeIn fourth" (click)="login()" value="Log In" />
+    </form>
+  </div>
+</div>

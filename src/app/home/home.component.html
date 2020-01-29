@@ -1,1 +1,122 @@
-<h1>Welcome to home</h1>
+<nav class="navbar navbar-light bg-white">
+  <a class="navbar-brand" href="#">Home Page</a>
+  <button type="button" class="btn float-right" (click)="logout()">
+    Logout
+  </button>
+  <button
+    class="btn float-right"
+    data-toggle="modal"
+    data-target="#exampleModalCenter"
+  >
+    + Add User
+  </button>
+</nav>
+
+<div class="Home-body">
+  <h1>welcome {{ name }}</h1>
+
+  <h3>email: {{ email }}</h3>
+  <h3>Manager: {{ myManager.name }}</h3>
+
+  <div class="card mainCard">
+    <div class="card-header">Managed By {{ name }}</div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of myChild">
+            <td>{{ c.name }}</td>
+            <td>{{ c.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add user</h5>
+        <button
+          type="button"
+          class="close"
+          id="closeModal"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="addUser">
+        <div class="modal-body">
+          <input
+            formControlName="name"
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+            placeholder="Full Name"
+            required
+          />
+          <input
+            formControlName="email"
+            type="text"
+            id="email"
+            class="form-control"
+            name="email"
+            placeholder="Email"
+            required
+          />
+
+          <input
+            formControlName="pass"
+            type="password"
+            id="password"
+            class="form-control"
+            name="password"
+            placeholder="Password"
+            required
+          />
+
+          <select
+            placeholder="manager"
+            class="form-control"
+            formControlName="eid"
+          >
+            <option *ngFor="let manage of manager" [ngValue]="manage._id">{{
+              manage.name
+            }}</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="addUsers()"
+            data-dismiss="modal"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

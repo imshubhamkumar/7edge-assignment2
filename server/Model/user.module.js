@@ -27,7 +27,11 @@ const UserSchema = new Schema({
     updateTime: {
         type: String
     }
-})
+});
+
+validPassword = (password) => {
+    return (this.pass == password);
+}
 
 const users = mongoose.model('user', UserSchema);
 

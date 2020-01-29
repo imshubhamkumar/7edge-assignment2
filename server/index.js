@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 const bcrypt = require("bcrypt-node");
 const passport = require("passport");
-const passportConfig = require("./passport");
+require("./passport");
 const Users = require("./Model/user.module");
 const AppRoutes = require('./Routes/app.routes');
 const session = require('express-session');
@@ -36,6 +36,7 @@ mongoose
   });
   const MongoStore = require('connect-mongo')(session);
   app.use(session({
+    name: "myname.sid",
     resave:false,
     saveUninitialized:false,
     secret:'secret',
@@ -49,7 +50,7 @@ mongoose
 
   app.use(passport.initialize());
   app.use(passport.session());
-
+  app.use(express.json());
   app.use("/users", AppRoutes);
 
 

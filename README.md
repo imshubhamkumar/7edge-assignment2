@@ -2,13 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 
+
 ## Development server
 
 Run `npm run start` for a dev mode frontend. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 Run `npm run server` for start to server in dev mode. The server will run on port 8000 or `http://localhost:8000`.
 
-## Note:
+# Note:
 To run the application successfully you need to start both i.e frontend and backend which instructions are given above
 
 ## Code scaffolding
